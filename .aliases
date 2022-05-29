@@ -1,0 +1,44 @@
+alias sauce='source ~/.zshrc'
+alias bbq='vim ~/.aliases && sauce'
+alias ketchup='vim ~/.aliases && sauce && cat ~/.aliases|pbcopy && echo ".aliases copied to clipboard"'
+alias ketchupw='vim ~/.aliases && sauce && cat ~/.aliases|clip.exe && echo ".aliases copied to clipboard"'
+
+alias morning='echo "sudo service mysql start; sudo service redis-server start; sudo service php8.1-fpm start; sudo service nginx start; sudo service mysql status; sudo service redis-server status; sudo service php8.1-fpm status; sudo service nginx status;"| clip.exe'
+alias gnight='echo "sudo service mysql stop; sudo service redis-server stop; sudo service php8.1-fpm stop; sudo service nginx stop; sudo service mysql status; sudo service redis-server status; sudo service php8.1-fpm status; sudo service nginx status;"| clip.exe'
+alias here='wslpath -w .'
+alias storm='phpstorm64.exe'
+
+alias mst='php artisan migrate:fresh --env=testing'
+alias mfs='php artisan migrate:fresh --seed'
+alias art='php artisan'
+alias art:cron='php artisan schedule:run-cronless --frequency=15'
+alias ac='art:cron'
+alias tst='vendor/bin/phpunit'
+alias att='art test:turbo'
+alias pf='vendor/bin/phpunit --filter'
+alias art:lang='php artisan lang:js --group-locales public/core/js/lang/messages.js --compress --window-object'
+alias art:ziggy='php artisan ziggy:generate packages/core/resources/js/routes.js'
+
+alias nr='npm run'
+alias nrw='npm run watch'
+alias nrj='npm run watch-js'
+alias nrc='npm run watch-css'
+alias nrd='npm run development'
+alias nrp='npm run production'
+alias ni='npm i'
+alias nci='npm ci'
+
+alias pu='vendor/bin/phpunit'
+alias puc='php -dxdebug.mode=coverage vendor/bin/phpunit --coverage-html reports/'
+
+
+alias doc='docker-compose'
+alias dr='doc down && doc up -d'
+
+alias xoff='sed -i "" "s/zend_extension=\"xdebug.so\"/;zend_extension=\"xdebug.so\"/" /usr/local/etc/php/8.0/php.ini; valet restart php; php -v;'
+alias xon='sed -i "" "s/;zend_extension=\"xdebug.so\"/zend_extension=\"xdebug.so\"/" /usr/local/etc/php/8.0/php.ini; valet restart php; php -v;'
+
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
