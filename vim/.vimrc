@@ -1,3 +1,6 @@
+" Coc is crying
+let g:coc_node_path = '/Users/alexlaw/.nvm/versions/node/v16.13.1/bin/node'
+
 "---- For Neovim ----
 "set runtimepath^=~/.vim runtimepath+=~/.vim/after
 "let &packpath=&runtimepath
@@ -30,8 +33,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
+"Plug 'mhinz/vim-signify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'yaegassy/coc-intelephense', {'do': 'yarn install --frozen-lockfile'}
+Plug 'yaegassy/coc-volar', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
 "---- VimPlug ----
 
@@ -42,6 +47,7 @@ call plug#end()
 :nmap <leader>s :NERDTreeFind<CR>
 
 if has('nvim')
+	:nmap <leader>o :CocList outline<CR>
 endif
 "---- Key Bindings ----
 
