@@ -28,6 +28,8 @@ alias nrp='npm run production'
 alias ni='npm i'
 alias nci='npm ci'
 
+alias sail='vendor/bin/sail'
+
 alias pu='vendor/bin/phpunit'
 alias puc='php -dxdebug.mode=coverage vendor/bin/phpunit --coverage-html reports/'
 
