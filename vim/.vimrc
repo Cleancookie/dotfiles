@@ -15,6 +15,7 @@ set smartcase " ^ except for if i use a capital letter
 set tabstop=4 softtabstop=4
 set shiftwidth=4 " tab space for when shifting across
 set smartindent " try to auto indent when it can
+set nowrap
 set noswapfile
 set undodir=~/.vim/undodir " Save the undos
 set undofile
@@ -23,6 +24,7 @@ set encoding=utf-8
 set number " line numbers
 if has('nvim')
   set relativenumber
+  set guifont=Cascadia\ Code:h12
 endif
 "---- Vim settings ----
 
@@ -31,21 +33,26 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'preservim/nerdtree'
+" Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
 "Plug 'mhinz/vim-signify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'yaegassy/coc-intelephense', {'do': 'yarn install --frozen-lockfile'}
 Plug 'yaegassy/coc-volar', {'do': 'yarn install --frozen-lockfile'}
+if has('nvim')
+	Plug 'antoinemadec/FixCursorHold.nvim'
+endif
+Plug 'lambdalisue/fern.vim'
 call plug#end()
 "---- VimPlug ----
 
 "---- Key Bindings ----
-:nmap <C-e> :NERDTreeToggle<CR>
+" :nmap <C-e> :NERDTreeToggle<CR>
+" :nmap <leader>e :NERDTreeFind<CR>
+:nmap <C-e> :Fern . -reveal=% -drawer -toggle<CR>
 :nmap <leader>p :Files<CR>
 :nmap <C-p> :Files<CR>
 :nmap <leader>b :Buffer<CR>
-:nmap <leader>e :NERDTreeFind<CR>
 
 if has('nvim')
 	:nmap <leader>o :CocList outline<CR>
