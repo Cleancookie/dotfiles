@@ -1,5 +1,5 @@
-" Coc is crying
-let g:coc_node_path = '/Users/alexlaw/.nvm/versions/node/v16.13.1/bin/node'
+"" Coc is crying
+let g:coc_node_path = '/home/cookie/.nvm/versions/node/v17.8.0/bin/node'
 
 "---- For Neovim ----
 "set runtimepath^=~/.vim runtimepath+=~/.vim/after
@@ -41,10 +41,11 @@ call plug#end()
 "---- VimPlug ----
 
 "---- Key Bindings ----
-:nmap <leader>e :NERDTreeToggle<CR>
+:nmap <C-e> :NERDTreeToggle<CR>
 :nmap <leader>p :Files<CR>
+:nmap <C-p> :Files<CR>
 :nmap <leader>b :Buffer<CR>
-:nmap <leader>s :NERDTreeFind<CR>
+:nmap <leader>e :NERDTreeFind<CR>
 
 if has('nvim')
 	:nmap <leader>o :CocList outline<CR>
