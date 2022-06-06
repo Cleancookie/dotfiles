@@ -25,7 +25,7 @@ set number " line numbers
 if has('nvim')
   set relativenumber
   set guifont=Cascadia\ Code:h14
-  set linespace=4
+  set linespace=6
 endif
 set exrc " load the .vimrc of the folder i opened
 "---- Vim settings ----
