@@ -9,8 +9,9 @@ let g:coc_node_path = substitute(system('which node'), '\n', '', '')
 
 "---- Vim settings ----
 syntax on
+set exrc " load the .vimrc of the folder i opened
 set scrolloff=8
-set ignorecase " Case insensitive seartch
+set ignorecase " case insensitive search
 set smartcase " ^ except for if i use a capital letter
 set tabstop=4 softtabstop=4
 set shiftwidth=4 " tab space for when shifting across
