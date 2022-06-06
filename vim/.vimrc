@@ -44,7 +44,10 @@ if has('nvim')
 endif
 Plug 'lambdalisue/fern.vim'
 call plug#end()
+Plug 'morhetz/gruvbox'
 "---- VimPlug ----
+
+colorscheme grubox
 
 "---- Key Bindings ----
 " :nmap <C-e> :NERDTreeToggle<CR>
