@@ -1,5 +1,5 @@
-"" Coc is crying
-let g:coc_node_path = substitute(system('which node'), '\n', '', '')
+" Coc is crying
+let g:coc_node_path = '/home/alexlaw/.nvm/versions/node/v18.5.0/bin/node'
 
 "---- For Neovim ----
 "set runtimepath^=~/.vim runtimepath+=~/.vim/after
@@ -10,12 +10,11 @@ let g:coc_node_path = substitute(system('which node'), '\n', '', '')
 "---- Vim settings ----
 syntax on
 set scrolloff=8
-set ignorecase " case insensitive search
+set ignorecase " Case insensitive seartch
 set smartcase " ^ except for if i use a capital letter
 set tabstop=4 softtabstop=4
 set shiftwidth=4 " tab space for when shifting across
 set smartindent " try to auto indent when it can
-set nowrap
 set noswapfile
 set undodir=~/.vim/undodir " Save the undos
 set undofile
@@ -24,10 +23,7 @@ set encoding=utf-8
 set number " line numbers
 if has('nvim')
   set relativenumber
-  set guifont=Cascadia\ Code:h14
-  set linespace=6
 endif
-set exrc " load the .vimrc of the folder i opened
 "---- Vim settings ----
 
 "---- VimPlug ----
@@ -35,28 +31,20 @@ set exrc " load the .vimrc of the folder i opened
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
+"Plug 'mhinz/vim-signify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'yaegassy/coc-intelephense', {'do': 'yarn install --frozen-lockfile'}
 Plug 'yaegassy/coc-volar', {'do': 'yarn install --frozen-lockfile'}
-if has('nvim')
-	Plug 'antoinemadec/FixCursorHold.nvim'
-endif
-Plug 'lambdalisue/fern.vim'
-Plug 'morhetz/gruvbox'
 call plug#end()
 "---- VimPlug ----
 
-colorscheme gruvbox
-
 "---- Key Bindings ----
-:nmap <C-e> :Fern . -reveal=% -drawer -toggle<CR>
+:nmap <leader>e :NERDTreeToggle<CR>
 :nmap <leader>p :Files<CR>
-:nmap <C-p> :Files<CR>
 :nmap <leader>b :Buffer<CR>
-:nnoremap <D-v> a<C-r>+<Esc>
-:inoremap <D-v> a<C-r>+
-:cnoremap <D-v> a<C-r>+
+:nmap <leader>s :NERDTreeFind<CR>
 
 if has('nvim')
 	:nmap <leader>o :CocList outline<CR>
@@ -77,7 +65,7 @@ if has('nvim')
   set nowritebackup
 
   " Give more space for displaying messages.
-  " set cmdheight=2
+  set cmdheight=2
 
   " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
   " delays and poor user experience.
@@ -233,4 +221,3 @@ if has('nvim')
   nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 endif
 "---- CoC ----
-
