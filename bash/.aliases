@@ -34,8 +34,8 @@ alias sail='vendor/bin/sail'
 alias pu='vendor/bin/phpunit'
 alias puc='php -dxdebug.mode=coverage vendor/bin/phpunit --coverage-html reports/'
 
-
 alias doc='docker-compose'
+alias docd='docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d'
 alias dx='docker-compose exec'
 alias dr='doc down && doc up -d'
 
