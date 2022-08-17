@@ -30,6 +30,7 @@ alias ni='npm i'
 alias nci='npm ci'
 
 alias sail='vendor/bin/sail'
+alias dlb='cd ~/code/devilbox && ./shell.sh'
 
 alias pu='vendor/bin/phpunit'
 alias puc='php -dxdebug.mode=coverage vendor/bin/phpunit --coverage-html reports/'
