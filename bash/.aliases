@@ -1,7 +1,6 @@
 alias sauce='source ~/.zshrc'
-alias bbq='vim ~/.aliases && sauce'
-alias ketchup='vim ~/.aliases && sauce && cat ~/.aliases|pbcopy && echo ".aliases copied to clipboard"'
-alias ketchupw='vim ~/.aliases && sauce && cat ~/.aliases|clip.exe && echo ".aliases copied to clipboard"'
+alias sauce:edit='nvim ~/.aliases && sauce'
+alias sauce:copy='cat ~/.aliases|clip.exe && echo ".aliases copied to clipboard"'
 
 alias morning='echo "sudo service mysql start; sudo service redis-server start; sudo service php8.1-fpm start; sudo service nginx start; sudo service mysql status; sudo service redis-server status; sudo service php8.1-fpm status; sudo service nginx status;"| clip.exe'
 alias internet='echo "nameserver 1.1.1.1\nnameserver 1.0.0.1" | sudo tee -a /etc/resolv.conf'
@@ -42,7 +41,9 @@ alias dr='doc down && doc up -d'
 alias xoff='sed -i "" "s/zend_extension=\"xdebug.so\"/;zend_extension=\"xdebug.so\"/" /usr/local/etc/php/8.0/php.ini; valet restart php; php -v;'
 alias xon='sed -i "" "s/;zend_extension=\"xdebug.so\"/zend_extension=\"xdebug.so\"/" /usr/local/etc/php/8.0/php.ini; valet restart php; php -v;'
 
-export PATH="$PATH:$HOME/.config/composer/vendor/bin"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+alias ag='alias | grep'
+
+#export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
