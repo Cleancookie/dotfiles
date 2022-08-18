@@ -1,5 +1,5 @@
 " Coc is crying
-let g:coc_node_path = '/home/alexlaw/.nvm/versions/node/v16.16.0/bin/node'
+let g:coc_node_path = substitute(system('which node'), '\n', '', '')
 
 "---- For Neovim ----
 "set runtimepath^=~/.vim runtimepath+=~/.vim/after
