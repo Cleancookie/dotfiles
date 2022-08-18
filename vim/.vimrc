@@ -21,6 +21,7 @@ set undofile
 set incsearch
 set encoding=utf-8
 set number " line numbers
+let NERDTreeShowHidden=1
 if has('nvim')
   set relativenumber
 endif
