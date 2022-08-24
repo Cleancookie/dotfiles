@@ -1,3 +1,4 @@
+#test
 alias sauce='source ~/.zshrc'
 alias sauce:edit='nvim ~/.aliases && sauce'
 alias sauce:copy='cat ~/.aliases|clip.exe && echo ".aliases copied to clipboard"'
