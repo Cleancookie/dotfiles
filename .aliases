@@ -41,6 +41,7 @@ alias doc='docker-compose'
 alias docd='docker-compose -f docker-compose.yml -f docker-compose.dev.yml'
 alias dx='docker-compose exec'
 alias dr='doc down && doc up -d'
+alias dlb='~/code/devilbox && ./shell.sh'
 
 alias xoff='sed -i "" "s/zend_extension=\"xdebug.so\"/;zend_extension=\"xdebug.so\"/" /usr/local/etc/php/8.0/php.ini; valet restart php; php -v;'
 alias xon='sed -i "" "s/;zend_extension=\"xdebug.so\"/zend_extension=\"xdebug.so\"/" /usr/local/etc/php/8.0/php.ini; valet restart php; php -v;'
