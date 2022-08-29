@@ -22,9 +22,7 @@ set incsearch
 set encoding=utf-8
 set number " line numbers
 let NERDTreeShowHidden=1
-if has('nvim')
-  set relativenumber
-endif
+let $FZF_DEFAULT_COMMAND="find -L"
 "---- Vim settings ----
 
 "---- VimPlug ----
@@ -32,25 +30,43 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
-"Plug 'mhinz/vim-signify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'yaegassy/coc-intelephense', {'do': 'yarn install --frozen-lockfile'}
 Plug 'yaegassy/coc-volar', {'do': 'yarn install --frozen-lockfile'}
+Plug 'tpope/vim-vinegar'
 call plug#end()
 "---- VimPlug ----
 
 "---- Key Bindings ----
-:nmap <leader>e :NERDTreeToggle<CR>
 :nmap <leader>p :Files<CR>
 :nmap <leader>b :Buffer<CR>
-:nmap <leader>s :NERDTreeFind<CR>
+noremap <silent> <C-e> :call ToggleNetrw()<CR>
 
 if has('nvim')
 	:nmap <leader>o :CocList outline<CR>
 endif
 "---- Key Bindings ----
+
+"---- Netrw functions ----
+let g:NetrwIsOpen=0
+
+function! ToggleNetrw()
+    if g:NetrwIsOpen
+        let i = bufnr("$")
+        while (i >= 1)
+            if (getbufvar(i, "&filetype") == "netrw")
+                silent exe "bwipeout " . i 
+            endif
+            let i-=1
+        endwhile
+        let g:NetrwIsOpen=0
+    else
+        let g:NetrwIsOpen=1
+        silent Lexplore
+    endif
+endfunction
+"---- Netrw functions ----
 
 "---- CoC ----
 if has('nvim')
