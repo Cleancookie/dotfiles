@@ -45,6 +45,9 @@ alias dlb='cd ~/code/devilbox && ./shell.sh'
 alias xoff='sed -i "" "s/zend_extension=\"xdebug.so\"/;zend_extension=\"xdebug.so\"/" /usr/local/etc/php/8.0/php.ini; valet restart php; php -v;'
 alias xon='sed -i "" "s/;zend_extension=\"xdebug.so\"/zend_extension=\"xdebug.so\"/" /usr/local/etc/php/8.0/php.ini; valet restart php; php -v;'
 
+alias zshoff='git config oh-my-zsh.hide-info 1'
+alias zshon='git config oh-my-zsh.hide-info 0'
+
 alias ag='alias | grep'
 
 #export PATH="$PATH:$HOME/.config/composer/vendor/bin"
