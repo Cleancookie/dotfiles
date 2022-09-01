@@ -1,0 +1,1 @@
+map('n', ' bb', ':BufferPick<CR>', {silent = true})
