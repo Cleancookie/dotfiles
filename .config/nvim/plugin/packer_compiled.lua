@@ -74,6 +74,11 @@ _G.packer_plugins = {
     path = "/home/cookie/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/morhetz/gruvbox"
   },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/home/cookie/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/cookie/.local/share/nvim/site/pack/packer/start/packer.nvim",
