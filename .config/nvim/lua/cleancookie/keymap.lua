@@ -17,5 +17,8 @@ vim.g.mapleader = ' '
 -- Neovim shortcuts
 -----------------------------------------------------------
 
-map('n', '<leader>p', ':Files<CR>')
+map('n', '<C-p>', ':Telescope find_files<CR>')
+map('n', '<leader>p', ':Telescope find_files<CR>')
+map('n', '<leader>b', ':Telescope buffers<CR>')
 map('n', '<leader>e', ':Ex<CR>')
+
