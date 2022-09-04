@@ -1,9 +1,10 @@
 alias sauce='source ~/.zshrc'
-alias sauce:edit='nvim ~/.aliases && sauce'
+alias sauce:edit='vim ~/.aliases && sauce'
 alias sauce:copy='cat ~/.aliases|clip.exe && echo ".aliases copied to clipboard"'
 alias vimrc='nvim ~/.vimrc'
 
 alias ycp='yadm commit && yadm push origin'
+alias yp='yadm pull'
 
 alias morning='echo "sudo service mysql start; sudo service redis-server start; sudo service php8.1-fpm start; sudo service nginx start; sudo service mysql status; sudo service redis-server status; sudo service php8.1-fpm status; sudo service nginx status;"| clip.exe'
 alias internet='echo "nameserver 1.1.1.1\nnameserver 1.0.0.1" | sudo tee -a /etc/resolv.conf'
