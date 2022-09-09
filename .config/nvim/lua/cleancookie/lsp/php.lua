@@ -24,6 +24,7 @@ lsp.intelephense.setup({
             files = {
                 maxSize = 5000000;
             };
-        };
+        },
+        volar = {}
     }
 });
