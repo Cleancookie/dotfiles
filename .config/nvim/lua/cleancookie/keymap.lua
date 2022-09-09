@@ -10,6 +10,8 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+local bufopts = { noremap = true, silent = true, buffer = bufnr }
+
 -- Change leader to a comma
 vim.g.mapleader = ' '
 
@@ -17,12 +19,17 @@ vim.g.mapleader = ' '
 -- Neovim shortcuts
 -----------------------------------------------------------
 
-map('n', '<C-p>', ':Telescope find_files<CR>')
-map('n', '<leader>p', ':Telescope find_files<CR>')
 map('n', '<leader>b', ':Telescope buffers<CR>')
 map('n', '<leader>e', ':Ex<CR>')
 
-local bufopts = { noremap=true, silent=true, buffer=bufnr }
+vim.keymap.set('n', '<C-p>', ":lua require('telescope.builtin').find_files()<CR>")
+vim.keymap.set('n', 'fb', ":lua require('telescope.builtin').buffers()<CR>")
+vim.keymap.set('n', 'fh', ":lua require('telescope.builtin').help_tags()<CR>")
+vim.keymap.set('n', 'fk', ":lua require('telescope.builtin').keymaps()<CR>")
+vim.keymap.set('n', 'ff', ":lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>")
+vim.keymap.set('n', 'fc', ":lua require('telescope.builtin').commands()<CR>")
+vim.keymap.set('n', '<leader>o', ":lua require('telescope.builtin').lsp_document_symbols()<CR>")
+
 vim.keymap.set('n', '<leader>f', vim.diagnostic.open_float, bufopts)
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)

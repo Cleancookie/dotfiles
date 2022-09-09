@@ -1,7 +1,7 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function(use)
+require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   use 'morhetz/gruvbox'
@@ -11,3 +11,13 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 end)
+
+require('telescope').setup({
+  defaults = {
+    path_display = {
+      'truncate',
+      'smart'
+    }
+  },
+  -- other configuration values here
+})
