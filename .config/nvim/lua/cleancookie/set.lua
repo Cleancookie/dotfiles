@@ -11,5 +11,4 @@ vim.opt.undofile = true
 vim.opt.incsearch = true
 vim.opt.encoding = 'utf-8'
 vim.opt.number = true -- line numbers
-
-vim.g.FZF_DEFAULT_COMMAND = "find -L"
+vim.opt.signcolumn = 'no' -- get rid of that grey bar on the left
