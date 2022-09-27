@@ -2,6 +2,7 @@ alias sauce='source ~/.zshrc'
 alias sauce:edit='vim ~/.aliases && sauce'
 alias sauce:copy='cat ~/.aliases|clip.exe && echo ".aliases copied to clipboard"'
 alias vimrc='nvim ~/.vimrc'
+alias nvimrc='nvim ~/.config/nvim'
 
 alias ycp='yadm commit && yadm push origin'
 alias yp='yadm pull'
