@@ -51,6 +51,9 @@ alias zshon='git config oh-my-zsh.hide-info 0'
 
 alias ag='alias | grep'
 
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 #export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
