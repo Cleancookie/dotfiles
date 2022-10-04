@@ -27,10 +27,16 @@ require('packer').startup(function(use)
 end)
 
 require('telescope').setup({
-  defaults = {
-    path_display = {
-      'truncate',
-      'smart'
-    }
-  },
+	pickers = {
+		find_files = {
+			hidden = true
+		},
+	},
+	defaults = {
+		path_display = {
+			'truncate',
+			'smart'
+		}
+	},
 })
+
