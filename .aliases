@@ -38,6 +38,8 @@ alias nci='npm ci'
 
 alias sail='vendor/bin/sail'
 
+alias rg='rg -j $(nproc)'
+
 alias pu='vendor/bin/phpunit'
 alias puc='php -dxdebug.mode=coverage vendor/bin/phpunit --coverage-html reports/'
 
