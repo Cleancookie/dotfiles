@@ -20,22 +20,6 @@ require('packer').startup(function(use)
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
-  use {
-    "folke/which-key.nvim",
-    config = function()
-      require("which-key").setup {
-		  plugins = {
-			  marks = true,
-			  regisers = true,
-		  },
-		  layout = {
-			  align = "right"
-		  }
-      }
-    end
-  }
-
-
   if packer_bootstrap then
     require('packer').sync()
   end
