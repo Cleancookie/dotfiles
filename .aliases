@@ -9,7 +9,8 @@ alias yp='yadm pull'
 
 alias p='cd ~/projects'
 alias tls='tmux ls'
-alias tat='tmux a -t'
+alias tat='tmux at'
+alias t='tmux'
 
 alias morning='echo "sudo service mysql start; sudo service redis-server start; sudo service php8.1-fpm start; sudo service nginx start; sudo service mysql status; sudo service redis-server status; sudo service php8.1-fpm status; sudo service nginx status;"| clip.exe'
 alias internet='echo "nameserver 1.1.1.1\nnameserver 1.0.0.1" | sudo tee -a /etc/resolv.conf'
