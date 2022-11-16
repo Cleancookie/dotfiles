@@ -7,6 +7,8 @@ alias nvimrc='nvim ~/.config/nvim'
 alias ycp='yadm commit && yadm push origin'
 alias yp='yadm pull'
 
+alias lg='lazygit'
+
 alias p='cd ~/projects'
 alias tls='tmux ls'
 alias tat='tmux at'
