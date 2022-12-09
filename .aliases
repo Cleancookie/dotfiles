@@ -19,6 +19,8 @@ alias tls='tmux ls'
 alias tat='tmux at'
 alias t='tmux'
 
+alias listinterops='find /run/WSL/ -maxdepth 1 -type s -mmin +60'
+
 alias morning='echo "sudo service mysql start; sudo service redis-server start; sudo service php8.1-fpm start; sudo service nginx start; sudo service mysql status; sudo service redis-server status; sudo service php8.1-fpm status; sudo service nginx status;"| clip.exe'
 alias internet='echo "nameserver 1.1.1.1\nnameserver 1.0.0.1" | sudo tee -a /etc/resolv.conf'
 alias gnight='echo "sudo service mysql stop; sudo service redis-server stop; sudo service php8.1-fpm stop; sudo service nginx stop; sudo service mysql status; sudo service redis-server status; sudo service php8.1-fpm status; sudo service nginx status;"| clip.exe'
