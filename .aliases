@@ -32,6 +32,7 @@ alias storm='phpstorm64.exe'
 alias explorer='explorer.exe'
 alias explore='explorer.exe'
 
+
 ######
 # Paths
 
@@ -79,6 +80,8 @@ alias nrd='npm run development'
 alias nrp='npm run production'
 alias ni='npm i'
 alias nci='npm ci'
+
+alias nneu='npx @neutralinojs/neu'
 
 ######
 # Docker
