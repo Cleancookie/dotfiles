@@ -1,3 +1,6 @@
+######
+# Editing configs
+
 alias sauce='source ~/.zshrc'
 alias sauce:edit='vim ~/.aliases && sauce'
 alias sauce:copy='cat ~/.aliases|clip.exe && echo ".aliases copied to clipboard"'
@@ -10,14 +13,32 @@ alias tmuxrc='nvim ~/.tmux.conf'
 alias ycp='yadm commit && yadm push origin'
 alias yp='yadm pull'
 
+######
+# Tool aliases
+
 alias lg='lazygit'
 
 alias bat='bat --paging=never'
 
-alias p='cd ~/projects'
+alias rg='rg -j $(nproc)'
+
+alias ag='alias | grep'
+
 alias tls='tmux ls'
 alias tat='tmux at'
 alias t='tmux'
+
+alias storm='phpstorm64.exe'
+alias explorer='explorer.exe'
+alias explore='explorer.exe'
+
+######
+# Paths
+
+alias p='cd ~/projects'
+
+######
+# WSL
 
 alias interops='find /run/WSL/ -maxdepth 1 -type s -mmin +60'
 alias interops:kill='find /run/WSL/ -maxdepth 1 -type s -mmin +60 | xargs rm'
@@ -27,9 +48,8 @@ alias internet='echo "nameserver 1.1.1.1\nnameserver 1.0.0.1" | sudo tee -a /etc
 alias gnight='echo "sudo service mysql stop; sudo service redis-server stop; sudo service php8.1-fpm stop; sudo service nginx stop; sudo service mysql status; sudo service redis-server status; sudo service php8.1-fpm status; sudo service nginx status;"| clip.exe'
 alias here='wslpath -w .'
 
-alias storm='phpstorm64.exe'
-alias explorer='explorer.exe'
-alias explore='explorer.exe'
+######
+# Laravel
 
 alias mst='php artisan migrate:fresh --env=testing'
 alias mfs='php artisan migrate:fresh --seed'
@@ -41,6 +61,15 @@ alias att='art test:turbo'
 alias pf='vendor/bin/phpunit --filter'
 alias art:lang='php artisan lang:js --group-locales public/core/js/lang/messages.js --compress --window-object'
 alias art:ziggy='php artisan ziggy:generate packages/core/resources/js/routes.js'
+alias sail='vendor/bin/sail'
+alias pu='vendor/bin/phpunit'
+alias puc='php -dxdebug.mode=coverage vendor/bin/phpunit --coverage-html reports/'
+
+alias xoff='sed -i "" "s/zend_extension=\"xdebug.so\"/;zend_extension=\"xdebug.so\"/" /usr/local/etc/php/8.0/php.ini; valet restart php; php -v;'
+alias xon='sed -i "" "s/;zend_extension=\"xdebug.so\"/zend_extension=\"xdebug.so\"/" /usr/local/etc/php/8.0/php.ini; valet restart php; php -v;'
+
+######
+# Node
 
 alias nr='npm run'
 alias nrw='npm run watch'
@@ -51,12 +80,8 @@ alias nrp='npm run production'
 alias ni='npm i'
 alias nci='npm ci'
 
-alias sail='vendor/bin/sail'
-
-alias rg='rg -j $(nproc)'
-
-alias pu='vendor/bin/phpunit'
-alias puc='php -dxdebug.mode=coverage vendor/bin/phpunit --coverage-html reports/'
+######
+# Docker
 
 alias doc='docker-compose'
 alias docd='docker-compose -f docker-compose.yml -f docker-compose.dev.yml'
@@ -64,13 +89,11 @@ alias dx='docker-compose exec'
 alias dr='doc down && doc up -d'
 alias dlb='cd ~/projects/devilbox && ./shell.sh'
 
-alias xoff='sed -i "" "s/zend_extension=\"xdebug.so\"/;zend_extension=\"xdebug.so\"/" /usr/local/etc/php/8.0/php.ini; valet restart php; php -v;'
-alias xon='sed -i "" "s/;zend_extension=\"xdebug.so\"/zend_extension=\"xdebug.so\"/" /usr/local/etc/php/8.0/php.ini; valet restart php; php -v;'
+######
+# Easy configs
 
 alias zshoff='git config oh-my-zsh.hide-info 1'
 alias zshon='git config oh-my-zsh.hide-info 0'
-
-alias ag='alias | grep'
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
@@ -81,10 +104,3 @@ export PATH="$PATH:$HOME/.local/bin"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-fix_wsl2_interop() {
-	    for i in $(pstree -np -s $$ | grep -o -E '[0-9]+'); do
-			        if [[ -e "/run/WSL/${i}_interop" ]]; then
-						            export WSL_INTEROP=/run/WSL/${i}_interop
-									        fi
-											    done
-}
