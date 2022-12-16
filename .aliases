@@ -66,6 +66,8 @@ alias sail='vendor/bin/sail'
 alias pu='vendor/bin/phpunit'
 alias puc='php -dxdebug.mode=coverage vendor/bin/phpunit --coverage-html reports/'
 
+alias tlogs='tail -f $(find ~/projects -maxdepth 4 -name laravel.log)'
+
 alias xoff='sed -i "" "s/zend_extension=\"xdebug.so\"/;zend_extension=\"xdebug.so\"/" /usr/local/etc/php/8.0/php.ini; valet restart php; php -v;'
 alias xon='sed -i "" "s/;zend_extension=\"xdebug.so\"/zend_extension=\"xdebug.so\"/" /usr/local/etc/php/8.0/php.ini; valet restart php; php -v;'
 
