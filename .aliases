@@ -34,6 +34,7 @@ alias explore='explorer.exe'
 
 alias tlogs='tail -f $(find ~/projects -maxdepth 4 -mindepth 4 -name laravel.log)'
 
+alais nide='neovide.exe --wsl'
 ######
 # Paths
 
