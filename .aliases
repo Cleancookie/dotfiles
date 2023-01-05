@@ -29,12 +29,15 @@ alias tat='tmux at'
 alias t='tmux'
 
 alias storm='phpstorm64.exe'
+alias nide='neovide.exe --wsl'
+alias lite='lite-xl.exe'
+
 alias explorer='explorer.exe'
 alias explore='explorer.exe'
 
 alias tlogs='tail -f $(find ~/projects -maxdepth 4 -mindepth 4 -name laravel.log)'
 
-alias nide='neovide.exe --wsl'
+
 ######
 # Paths
 
