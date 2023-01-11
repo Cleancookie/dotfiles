@@ -47,6 +47,7 @@ local config = {
                         spell = false, -- sets vim.opt.spell
                         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
                         wrap = false, -- sets vim.opt.wrap
+                        scrolloff = 16,
                 },
                 g = {
                         mapleader = " ", -- sets vim.g.mapleader
@@ -143,7 +144,7 @@ local config = {
                 formatting = {
                         -- control auto formatting on save
                         format_on_save = {
-                                enabled = true, -- enable or disable format on save globally
+                                enabled = false, -- enable or disable format on save globally
                                 allow_filetypes = { -- enable format on save for specified filetypes only
                                         -- "go",
                                 },
@@ -260,7 +261,15 @@ local config = {
                 },
                 -- use mason-lspconfig to configure LSP installations
                 ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
-                        -- ensure_installed = { "sumneko_lua" },
+                        ensure_installed = {
+                                "sumneko_lua" ,
+                                "intelephense",
+                                "cssls",
+                                "volar",
+                                "html",
+                                "tailwindcss",
+                                "tsserver",
+                        },
                 },
                 -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
                 ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
