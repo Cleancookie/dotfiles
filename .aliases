@@ -37,6 +37,7 @@ alias explore='explorer.exe'
 
 alias tlogs='tail -f $(find ~/projects -maxdepth 4 -mindepth 4 -name laravel.log)'
 
+alias oops='fc -e vim'
 
 ######
 # Paths
@@ -91,11 +92,12 @@ alias nneu='npx @neutralinojs/neu'
 ######
 # Docker
 
-alias doc='docker-compose'
-alias docd='docker-compose -f docker-compose.yml -f docker-compose.dev.yml'
-alias dx='docker-compose exec'
-alias dr='doc down && doc up -d'
-alias dlb='cd ~/projects/devilbox && ./shell.sh'
+alias doc='docker-compose' # docker compose
+alias docd='docker-compose -f docker-compose.yml -f docker-compose.dev.yml' # docker dev
+alias dx='docker-compose exec' # docker exec
+alias dr='doc down && doc up -d' # docker restart
+alias dlb='cd ~/projects/devilbox && ./shell.sh' # devilbox
+alias dlb:dr='cd ~/projects/devilbox && dr'
 
 ######
 # Easy configs
