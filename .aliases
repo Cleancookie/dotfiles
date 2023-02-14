@@ -97,7 +97,7 @@ alias docd='docker-compose -f docker-compose.yml -f docker-compose.dev.yml' # do
 alias dx='docker-compose exec' # docker exec
 alias dr='doc down && doc up -d' # docker restart
 alias dlb='cd ~/projects/devilbox && ./shell.sh' # devilbox
-alias dlb:dr='cd ~/projects/devilbox && dr'
+alias dlb:dr='cd ~/projects/devilbox && dr && cd -'
 
 ######
 # Easy configs
