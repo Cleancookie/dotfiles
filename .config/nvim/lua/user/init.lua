@@ -199,7 +199,11 @@ local config = {
       ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
       ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
       ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
+
       ["<leader>O"] = { "<cmd>Neotree reveal_force_cwd<cr>", desc = "Sniper file" },
+      ["<leader>lC"] = { "<cmd>GetAllClasses<cr>", desc = "Import all classes" },
+      ["<leader>lc"] = { "<cmd>GetClass<cr>", desc = "Import class under cursor" },
+      -- ["<leader>ls"] = { "<cmd>SortClass<cr>", desc = "Sort classes" },
       -- quick save
       -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     },
@@ -213,6 +217,13 @@ local config = {
     init = {
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
+      { "github/copilot.vim" },
+      {
+        'ccaglak/namespace.nvim',
+        requires = {
+          "nvim-lua/plenary.nvim"
+        }
+      }
 
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
