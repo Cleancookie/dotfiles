@@ -80,6 +80,7 @@ alias xon='sed -i "" "s/;zend_extension=\"xdebug.so\"/zend_extension=\"xdebug.so
 
 alias nr='npm run'
 alias nrw='npm run watch'
+alias nrh='npm run hot'
 alias nrj='npm run watch-js'
 alias nrc='npm run watch-css'
 alias nrd='npm run development'
@@ -114,3 +115,7 @@ export PATH="$PATH:$HOME/.local/bin"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# FZF for <C-r> <C-t> <A-c>
+if [ -e /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
+fi
