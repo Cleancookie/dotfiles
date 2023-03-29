@@ -21,8 +21,9 @@ alias lg='lazygit'
 alias bat='bat --paging=never'
 
 alias rg='rg -j $(nproc)'
+alias frg='rg . --color ansi -j $(nproc) | fzf --ansi'
 
-alias ag='alias | grep'
+alias ag='alias | fzf'
 
 alias tls='tmux ls'
 alias tat='tmux at'
