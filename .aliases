@@ -20,8 +20,9 @@ alias lg='lazygit'
 
 alias bat='bat --paging=never'
 
-alias rg='rg -j $(nproc)'
-alias frg='rg . --color ansi -j $(nproc) | fzf --ansi'
+alias rg='rg -j $(nproc) --color=always'
+alias fz='fzf -d ":" -n 2.. --ansi --preview="echo {1}; cat {1}" --preview-window=up:25%'
+alias frg='rg . | fz'
 
 alias ag='alias | fzf'
 
