@@ -1,0 +1,6 @@
+[tools]
+neovim = 'stable'
+lazygit = 'latest'
+node = ['lts']
+ripgrep = 'latest'
+

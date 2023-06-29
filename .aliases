@@ -13,6 +13,9 @@ alias tmuxrc='nvim ~/.tmux.conf'
 alias ycp='yadm commit && yadm push origin'
 alias yp='yadm pull'
 
+alias rx='rtx'
+alias rx:edit='vim ~/.config/rtx/config.toml'
+
 ######
 # Tool aliases
 
