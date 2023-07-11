@@ -44,6 +44,8 @@ alias tlogs='tail -f $(find ~/projects -maxdepth 4 -mindepth 4 -name laravel.log
 
 alias oops='fc -e vim'
 
+alias form='terraform'
+
 ######
 # Paths
 
