@@ -97,6 +97,16 @@ alias nrp='npm run production'
 alias ni='npm i'
 alias nci='npm ci'
 
+alias br='bun run'
+alias brw='bun run watch'
+alias brh='bun run hot'
+alias brj='bun run watch-js'
+alias brc='bun run watch-css'
+alias brd='bun run development'
+alias brp='bun run production'
+alias bi='bun i'
+alias bci='bun ci'
+
 alias nneu='npx @neutralinojs/neu'
 
 ######
