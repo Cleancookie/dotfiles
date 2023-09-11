@@ -108,6 +108,7 @@ alias bi='bun i'
 alias bci='bun ci'
 
 alias nneu='npx @neutralinojs/neu'
+alias bneu='bunx @neutralinojs/neu'
 
 ######
 # Docker
