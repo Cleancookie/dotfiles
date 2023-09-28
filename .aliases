@@ -85,6 +85,10 @@ alias xoff='sed -i "" "s/zend_extension=\"xdebug.so\"/;zend_extension=\"xdebug.s
 alias xon='sed -i "" "s/;zend_extension=\"xdebug.so\"/zend_extension=\"xdebug.so\"/" /usr/local/etc/php/8.0/php.ini; valet restart php; php -v;'
 
 ######
+# Ansible
+alias av='ansible-vault'
+
+######
 # Node
 
 alias nr='npm run'
