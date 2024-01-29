@@ -13,8 +13,8 @@ alias tmuxrc='nvim ~/.tmux.conf'
 alias ycp='yadm commit && yadm push origin'
 alias yp='yadm pull'
 
-alias rx='rtx'
-alias rx:edit='vim ~/.config/rtx/config.toml'
+alias rt='rtx'
+alias rt:edit='vim ~/.config/rtx/config.toml'
 
 ######
 # Tool aliases
@@ -87,6 +87,10 @@ alias puc='php -dxdebug.mode=coverage vendor/bin/phpunit --coverage-html reports
 
 alias xoff='sed -i "" "s/zend_extension=\"xdebug.so\"/;zend_extension=\"xdebug.so\"/" /usr/local/etc/php/8.0/php.ini; valet restart php; php -v;'
 alias xon='sed -i "" "s/;zend_extension=\"xdebug.so\"/zend_extension=\"xdebug.so\"/" /usr/local/etc/php/8.0/php.ini; valet restart php; php -v;'
+
+######
+# Ansible
+alias av='ansible-vault'
 
 ######
 # Node
