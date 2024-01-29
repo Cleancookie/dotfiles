@@ -36,6 +36,7 @@ alias t='tmux'
 alias storm='phpstorm64.exe'
 alias nide='neovide.exe --wsl'
 alias lite='lite-xl.exe'
+alias pc='code $(find ~/projects -maxdepth 1 -type d | fzf)' # Open project in code
 
 alias explorer='explorer.exe'
 alias explore='explorer.exe'
@@ -45,6 +46,9 @@ alias tlogs='tail -f $(find ~/projects -maxdepth 4 -mindepth 4 -name laravel.log
 alias oops='fc -e vim'
 
 alias form='terraform'
+
+alias wtf='gh copilot suggest'
+alias wtff='gh copilot explain'
 
 ######
 # Paths
