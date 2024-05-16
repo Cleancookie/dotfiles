@@ -127,7 +127,7 @@ alias dx='docker-compose exec' # docker exec
 alias dr='doc down && doc up -d' # docker restart
 alias dlb='cd ~/projects/devilbox && ./shell.sh' # devilbox
 alias dlb:dr='cd ~/projects/devilbox && dr && cd -'
-alias dlbdr='$(dlb:dr) &'
+alias dlbdr='$(dlb:dr) &> /dev/null'
 
 ######
 # Easy configs
