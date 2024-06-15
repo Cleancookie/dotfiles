@@ -148,3 +148,20 @@ export PATH="$PATH:$HOME/.local/bin"
 if [ -e /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
   source /usr/share/doc/fzf/examples/key-bindings.zsh
 fi
+
+
+# Ctrl + P Command Palette
+ctrlp() {
+    # List all commands in PATH
+    local commands=$(compgen -c | sort -u)
+
+    # Use FZF to select a command
+    local selected_command=$(echo "$commands" | fzf --height 40% --reverse --border --preview "command -v {}" --preview-window=down:1:wrap)
+
+    # If a command was selected, run it
+    if [ -n "$selected_command" ]; then
+        eval "$selected_command"
+    fi
+}
+zle -N ctrlp
+bindkey '^P' ctrlp
