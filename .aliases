@@ -50,6 +50,8 @@ alias form='terraform'
 alias wtf='gh copilot suggest'
 alias wtff='gh copilot explain'
 
+alias rs='rsync -avz --info=progress2'
+
 ######
 # Paths
 
