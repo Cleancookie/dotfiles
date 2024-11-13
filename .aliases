@@ -70,6 +70,9 @@ alias here='wslpath -w .'
 
 alias paste.exe='powershell.exe Get-Clipboard'
 
+alias wudo='~/tools/wsl-sudo/wsl-sudo.py'
+alias whosts='wudo vim /mnt/c/Windows/System32/drivers/etc/hosts'
+
 ######
 # Laravel
 
