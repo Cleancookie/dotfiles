@@ -52,6 +52,8 @@ alias wtff='gh copilot explain'
 
 alias rs='rsync -avz --info=progress2'
 
+alias act='gh act'
+
 ######
 # Paths
 
