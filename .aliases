@@ -49,10 +49,12 @@ alias form='terraform'
 
 alias wtf='gh copilot suggest'
 alias wtff='gh copilot explain'
+alias act='gh act'
 
 alias rs='rsync -avz --info=progress2'
 
-alias act='gh act'
+alias winget='winget.exe'
+
 
 ######
 # Paths
