@@ -139,6 +139,19 @@ alias dlb:dr='cd ~/projects/devilbox && dr && cd -'
 alias dlbdr='$(dlb:dr) &> /dev/null'
 
 ######
+# Work Scripts
+which_server() {
+  if [ -z "$1" ]; then
+    echo "Usage: find_myproject <project_name>"
+    return 1
+  fi
+
+  for h in web{1..5}; do
+    ssh "$h" "ls /var/www 2>/dev/null | grep '$1' && echo 'Found on $h'"
+  done
+}
+
+######
 # Easy configs
 
 alias zshoff='git config oh-my-zsh.hide-info 1'
