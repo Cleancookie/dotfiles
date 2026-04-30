@@ -56,6 +56,8 @@ alias rs='rsync -avz --info=progress2'
 alias winget='winget.exe'
 alias mise:activate='eval "$(mise activate zsh)"'
 
+alias ds='~/projects/docker-stack/ds'
+
 
 ######
 # Paths
