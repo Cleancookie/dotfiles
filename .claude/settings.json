@@ -1,0 +1,51 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pwd)",
+      "Bash(ls *)",
+      "Bash(find *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(grep *)",
+      "Bash(jq *)",
+      "Bash(xargs ls:*)",
+      "Read(/tmp/**)",
+      "Write(/tmp/**)",
+      "Bash(mkdir *)",
+      "Bash(touch *)",
+      "Bash(git status)",
+      "Bash(git log*)",
+      "Bash(git diff --stat*)",
+      "Bash(gh pr:*)",
+      "Bash(gh gist list)",
+      "Bash(gh gist view *)",
+      "Bash(gh run view:*)",
+      "Bash(az boards work-item show:*)",
+      "Bash(az boards query:*)",
+      "Bash(az devops project list:*)",
+      "Bash(az resource list:*)",
+      "Bash(http *)",
+      "Bash(https *)",
+      "Bash(npx playwright *)",
+      "WebSearch"
+    ],
+    "deny": [
+      "Bash(grep * ~/.ssh/*)",
+      "Bash(find / -name id_rsa*)"
+    ],
+    "defaultMode": "acceptEdits"
+  },
+  "model": "sonnet[1m]",
+  "statusLine": {
+    "type": "command",
+    "command": "bash /home/alexlaw/.claude/statusline-command.sh"
+  },
+  "effortLevel": "medium",
+  "voice": {
+    "enabled": false,
+    "mode": "hold"
+  },
+  "preferredNotifChannel": "terminal_bell",
+  "voiceEnabled": false,
+  "skipAutoPermissionPrompt": true
+}
