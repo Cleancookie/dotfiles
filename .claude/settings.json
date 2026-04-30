@@ -38,7 +38,7 @@
   "model": "sonnet[1m]",
   "statusLine": {
     "type": "command",
-    "command": "bash /home/alexlaw/.claude/statusline-command.sh"
+    "command": "bash ~/.claude/statusline-command.sh"
   },
   "effortLevel": "medium",
   "voice": {
