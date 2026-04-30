@@ -139,6 +139,10 @@ alias dlb='cd ~/projects/devilbox && ./shell.sh' # devilbox
 alias dlb:dr='cd ~/projects/devilbox && dr && cd -'
 alias dlbdr='$(dlb:dr) &> /dev/null'
 
+#####
+# Git
+alias gr="gh repo view --web"
+
 ######
 # Work Scripts
 which_server() {
