@@ -21,6 +21,7 @@
       "Bash(gh gist view *)",
       "Bash(gh run view:*)",
       "Bash(az boards work-item show:*)",
+      "Bash(az boards work-item relation show:*)",
       "Bash(az boards query:*)",
       "Bash(az devops project list:*)",
       "Bash(az resource list:*)",

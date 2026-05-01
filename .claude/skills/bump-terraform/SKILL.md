@@ -5,7 +5,7 @@ description: Rebase a merged terraform branch onto main, bump the README retrigg
 
 # Bump terraform (retrigger plan workflow)
 
-The `~/projects/terraform` repo has a GitHub Action that runs `terraform plan` on PR events. When there are no real infra changes to PR, the team reuses an already-merged branch: reset it to `main`, bump a counter in the README to produce a unique diff, and open a PR so the plan workflow fires.
+The `~/projects/terraform` repo has a GitHub Action that runs `terraform plan` on PR events. When there are no real infra changes to PR, the team reuses an already-merged branch: reset it to `main`, bump the counter `Times updated just to retrigger workflows: X` in the README to produce a unique diff, and open a PR so the plan workflow fires.
 
 ## Inputs expected from the user
 

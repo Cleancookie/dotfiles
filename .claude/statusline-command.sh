@@ -24,20 +24,27 @@ MUTED=$(rgb FG 150 150 165)       # dim separator
 project_dir=$(echo "$input" | jq -r '.workspace.project_dir // .workspace.current_dir // ""')
 project_name=$(basename "$project_dir")
 
-# Today's cost across all JSONL files in the Claude projects dir for this workspace
+# Today's cost: project-scoped and all-sessions
 today=$(date +%Y-%m-%d)
 claude_proj_dir="$HOME/.claude/projects/$(echo "$project_dir" | sed 's|/|-|g')"
-today_cost=$(find "$claude_proj_dir" -name "*.jsonl" -mtime -1 2>/dev/null \
-  | xargs -I{} sh -c 'jq -r --arg today "'"$today"'" "
-      select(.timestamp | startswith(\$today))
-      | .costUSD // (
-          (.message.usage.input_tokens // 0) * 3 / 1000000 +
-          (.message.usage.output_tokens // 0) * 15 / 1000000 +
-          (.message.usage.cache_creation_input_tokens // 0) * 3.75 / 1000000 +
-          (.message.usage.cache_read_input_tokens // 0) * 0.30 / 1000000
-        )
-    " "{}" 2>/dev/null' \
-  | awk '{s+=$1} END {printf "$%.2f", s+0}')
+
+_sum_cost() {
+  find "$1" -name "*.jsonl" -mtime -1 2>/dev/null \
+    | xargs -I{} sh -c 'jq -r --arg today "'"$today"'" "
+        select(.timestamp | startswith(\$today))
+        | .costUSD // (
+            (.message.usage.input_tokens // 0) * 3 / 1000000 +
+            (.message.usage.output_tokens // 0) * 15 / 1000000 +
+            (.message.usage.cache_creation_input_tokens // 0) * 3.75 / 1000000 +
+            (.message.usage.cache_read_input_tokens // 0) * 0.30 / 1000000
+          )
+      " "{}" 2>/dev/null' \
+    | awk '{s+=$1} END {printf "$%.2f", s+0}'
+}
+
+proj_cost=$(_sum_cost "$claude_proj_dir")
+all_cost=$(_sum_cost "$HOME/.claude/projects")
+today_cost="${proj_cost} / ${all_cost}"
 
 model=$(echo "$input" | jq -r '.model.id // ""' | sed 's/^claude-//')
 effort=$(echo "$input" | jq -r '.effort.level // ""')
