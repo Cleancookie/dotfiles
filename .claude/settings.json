@@ -20,6 +20,7 @@
       "Bash(gh gist list)",
       "Bash(gh gist view *)",
       "Bash(gh run view:*)",
+      "Bash(gh run list:*)",
       "Bash(az boards work-item show:*)",
       "Bash(az boards work-item relation show:*)",
       "Bash(az boards query:*)",
@@ -37,28 +38,27 @@
     "defaultMode": "acceptEdits"
   },
   "model": "sonnet[1m]",
-  "statusLine": {
-    "type": "command",
-    "command": "bash ~/.claude/statusline-command.sh"
-  },
-  "effortLevel": "medium",
-  "voice": {
-    "enabled": false,
-    "mode": "hold"
-  },
-  "preferredNotifChannel": "terminal_bell",
-  "voiceEnabled": false,
-  "skipAutoPermissionPrompt": true,
   "hooks": {
     "Stop": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "printf '\\a' > /dev/tty"
+            "command": "tput bel"
           }
         ]
       }
     ]
-  }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
+  },
+  "voice": {
+    "enabled": false,
+    "mode": "hold"
+  },
+  "preferredNotifChannel": "terminal_bell",
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": false
 }
