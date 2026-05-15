@@ -63,7 +63,8 @@ out_str=$(fmt_k "$total_out")
 cur_str=$(fmt_k "$cur_used")
 ctx_str=$(fmt_k "$ctx_size")
 
-cost=$(echo "$input" | jq -r '.context_window.current_usage | if . then (.input_tokens//0)*3/1000000 + (.output_tokens//0)*15/1000000 + (.cache_creation_input_tokens//0)*3.75/1000000 + (.cache_read_input_tokens//0)*0.30/1000000 else 0 end' | awk '{printf "$%.3f",$1}')
+limit_5h=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // ""')
+limit_7d=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // ""')
 
 # ── Separator ─────────────────────────────────────────────────────────────────
 SEP="${RESET}${MUTED}${DIM} | ${RESET}"
@@ -81,5 +82,8 @@ printf "${SEP}${SKY}⬆ %s ⬇ %s${RESET}" "$in_str" "$out_str"
 # Segment 4: context window usage  (peach)
 printf "${SEP}${PEACH}🪟 %s/%s${RESET}" "$cur_str" "$ctx_str"
 
-# Segment 5: cost  (muted gold)
-printf "${SEP}${GOLD}💰 %s${RESET}\n" "$cost"
+# Segment 5: usage limits  (muted gold)
+if [ -n "$limit_5h" ] && [ -n "$limit_7d" ]; then
+  printf "${SEP}${GOLD}📊 5h:%s%% 7d:%s%%${RESET}" "$limit_5h" "$limit_7d"
+fi
+printf "\n"
