@@ -84,6 +84,6 @@ printf "${SEP}${PEACH}🪟 %s/%s${RESET}" "$cur_str" "$ctx_str"
 
 # Segment 5: usage limits  (muted gold)
 if [ -n "$limit_5h" ] && [ -n "$limit_7d" ]; then
-  printf "${SEP}${GOLD}📊 5h:%s%% 7d:%s%%${RESET}" "$limit_5h" "$limit_7d"
+  printf "${SEP}${GOLD}📊 5h:%.0f%% 7d:%.0f%%${RESET}" "$limit_5h" "$limit_7d"
 fi
 printf "\n"
