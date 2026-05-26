@@ -23,6 +23,7 @@
       "Bash(gh run list:*)",
       "Bash(gh repo view:*)",
       "Bash(gh issue create:*)",
+      "Bash(gh issue close:*)",
       "Bash(gh project list:*)",
       "Bash(az boards work-item show:*)",
       "Bash(az boards work-item relation show:*)",
@@ -40,7 +41,8 @@
       "Bash(find / -name id_rsa*)"
     ],
     "ask": [
-      "Bash(git push:*)",
+      "Bash(*push*--force*)",
+      "Bash(*push*-f*)",
       "Bash(az boards work-item update:*)",
       "Bash(terraform *)",
       "Bash(ansible *)",
@@ -65,7 +67,7 @@
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
   },
-  "effortLevel": "high",
+  "effortLevel": "xhigh",
   "voice": {
     "enabled": false,
     "mode": "hold"
