@@ -34,23 +34,49 @@
       "Bash(http *)",
       "Bash(https *)",
       "Bash(npx playwright *)",
+      "Bash(terraform version*)",
+      "Bash(terraform fmt -check*)",
+      "Bash(terraform validate*)",
+      "Bash(terraform providers*)",
+      "Bash(terraform show	*)",
+      "Bash(terraform output*)",
+	  "Bash(ansible --version*)",
+      "Bash(ansible-lint*)",
+      "Bash(ansible-config dump*)",
+      "Bash(ansible-config view*)",
+      "Bash(ansible-inventory --list*)",
+      "Bash(ansible-inventory --graph*)",
+      "Bash(ansible-galaxy list*)",
+      "Bash(ansible-galaxy info*)",
+      "Bash(ansible-doc*)",
       "WebSearch"
     ],
     "deny": [
       "Bash(grep * ~/.ssh/*)",
-      "Bash(find / -name id_rsa*)"
+      "Bash(find / -name id_rsa*)",
+	  "Read(~/.ssh/**)",
+	  "Read(~/.aws/**)",
+	  "Read(~/.azure/**)",
+	  "Read(~/.config/gcloud/**)",
+	  "Read(**/.env*)"
     ],
     "ask": [
       "Bash(*push*--force*)",
       "Bash(*push*-f*)",
-      "Bash(az boards work-item update:*)",
-      "Bash(terraform *)",
+      "Bash(rm *)",
+	  "Bash(git reset --hard*)",
+	  "Bash(git rebase*)",
+	  "Bash(ansible-playbook*)",
+      "Bash(ansible-vault*)",
+      "Bash(ansible-galaxy install*)",
       "Bash(ansible *)",
-      "Bash(rm *)"
+	  "Bash(terraform plan*)",
+      "Bash(terraform apply*)",
+      "Bash(terraform destroy*)",
+      "Bash(terraform state*)"
     ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "auto"
   },
-  "model": "sonnet[1m]",
   "hooks": {
     "Stop": [
       {
@@ -67,12 +93,44 @@
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
   },
-  "effortLevel": "xhigh",
+  "effortLevel": "medium",
+  "tui": "fullscreen",
   "voice": {
     "enabled": false,
     "mode": "hold"
   },
   "preferredNotifChannel": "terminal_bell",
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": false
+  "autoMode": {
+    "environment": [
+      "### Org-wide",
+      "**Organization**: None configured",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: PUBLIC — Cleancookie/db-pro (confirmed via gh)",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: None configured",
+      "**Default / protected branches**: Default branch `main`; no rulesets or protected branches listed via gh",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: None configured",
+      "**Source control**: The trusted repo (Cleancookie/db-pro, github.com:Cleancookie/db-pro.git) and its remote(s) only (no additional orgs configured)",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: None configured",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: docs/adr/0003-credential-storage.md, internal/config/secrets.go — any file or store holding personal data, confidential business data, credentials, regulated data, or similarly sensitive material; preserve exact handles when known and share only with audiences cleared at the [named+specifics] bar",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development (db-pro — keyboard-first database GUI)",
+      "**Trusted repo**: Cleancookie/db-pro (public) at /home/alexlaw/projects/db-pro and its configured remote (github.com:Cleancookie/db-pro.git) — since public, only this repo's own work belongs in it; confidential material (credentials, secrets) is never cleared into it by visibility alone",
+      "**Org-specific CLIs**: None configured",
+      "routine under /home/alexlaw/projects/db-pro/ prefix"
+    ]
+  },
+  "voiceEnabled": false,
+  "remote": {
+    "defaultEnvironmentId": "env_01KovXwtqmrb4CuuDs2qCu8m"
+  }
 }
