@@ -38,7 +38,7 @@
       "Bash(terraform fmt -check*)",
       "Bash(terraform validate*)",
       "Bash(terraform providers*)",
-      "Bash(terraform show	*)",
+      "Bash(terraform show *)",
       "Bash(terraform output*)",
 	  "Bash(ansible --version*)",
       "Bash(ansible-lint*)",
