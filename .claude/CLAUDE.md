@@ -4,10 +4,12 @@ Read files with Read, never cat/head/tail/sed -n via Bash. Grep to search, Glob 
 Change existing files with Edit, not Write. Write is for new files — it carries the whole file body and that body stays in context for the rest of the session
 Follow good software principles: KISS, DRY, SOLID, YAGNI, AHA.  Make design suggestions to encourage these principles
 I am a visual learner please help me visualise things over a wall of text
+Short sentences. RFC 2119 keywords for obligations. Commit = imperative subject; body only for a fact the diff cannot show. Comments only where code needs clarification - never narration
 
 # Commits
 
 Use conventional commits but replacing the text with emojis
+
 | Type | Gitmoji | Code | Description / Version Impact |
 | :--- | :--- | :--- | :--- |
 | `feat` | ✨ | `:sparkles:` | A new feature (**MINOR**) |
@@ -21,5 +23,6 @@ Use conventional commits but replacing the text with emojis
 | `chore` | 🔧 | `:wrench:` | Other changes that don't modify `src` or test files |
 | `revert` | ⏪️ | `:rewind:` | Reverting a previous commit (**PATCH**) |
 | `BREAKING CHANGE` | 💥 | `:boom:` | Breaking API changes (**MAJOR**) |
+
 If there is a work item number attached to the work then it will prefix the emoji `AB#1234 ✨ add command palette`
 The emoji replaces the type word — never write both. Format: [AB#1234 ]<emoji> <imperative subject>.
