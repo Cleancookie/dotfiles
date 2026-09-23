@@ -45,6 +45,14 @@ a person would recognise, not the abstraction.
 - ❌ `✨ add request helper` — which one, doing what?
 - ❌ `🐛 fix bugs on dsj` — says nothing; unreadable in six months.
 
+**Say what it's for, not how it's built.** State the outcome or the consumer it
+unblocks. Field lists, query shapes and "instead of X" belong in the diff.
+
+- ✅ `✨ add permissions to users so we can read view-crm-residential-sales-wallboards permission on portal_statistics_spa`
+- ❌ `✨ add permissions field to graph User type returning direct and role-inherited permission names` — inventory of the diff, not the purpose
+- ✅ `♻️ User.permissions no longer locked in to just strings`
+- ❌ `♻️ return User.permissions as a Permission type with id, name, display_name and type instead of plain name strings`
+
 **Lean on the commits around it.** A subject that explains itself is never wrong,
 but when an earlier commit on the branch already set up the mechanism, prefer the
 shorter subject that just says what this one does with it. Don't restate the same
