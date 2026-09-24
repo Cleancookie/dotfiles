@@ -16,6 +16,7 @@
       "Bash(git status)",
       "Bash(git log*)",
       "Bash(git diff --stat*)",
+      "Bash(git commit*)",
       "Bash(gh pr:*)",
       "Bash(gh gist list)",
       "Bash(gh gist view *)",
