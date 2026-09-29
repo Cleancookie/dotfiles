@@ -32,12 +32,6 @@ The emoji replaces the type word — never write both. Format: [AB#1234 ]<emoji>
 
 # Commit message rules
 
-**Subject only. No body unless direly needed.** If the subject cannot carry the
-commit, the commit is doing too much — split it.
-
-**Hard limit 450 characters, aim for 150.** Length is not the goal. A longer
-subject that names the thing beats a short one that gestures at it.
-
 **Name the thing.** Real function, file, endpoint or screen names. Say the trigger
 a person would recognise, not the abstraction.
 
@@ -56,7 +50,7 @@ unblocks. Field lists, query shapes and "instead of X" belong in the diff.
 **Lean on the commits around it.** A subject that explains itself is never wrong,
 but when an earlier commit on the branch already set up the mechanism, prefer the
 shorter subject that just says what this one does with it. Don't restate the same
-rationale in every commit of a series.
+rationale in every commit of a series. Commit history tells a story
 
 - ✅ `🐛 move to use new statRequest function which stops stale request`
 - also fine, just wordier once the helper's own commit has explained it:
