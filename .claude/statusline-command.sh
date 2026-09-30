@@ -65,6 +65,18 @@ ctx_str=$(fmt_k "$ctx_size")
 
 limit_5h=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // ""')
 limit_7d=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // ""')
+reset_5h=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // ""')
+reset_7d=$(echo "$input" | jq -r '.rate_limits.seven_day.resets_at // ""')
+
+# Time left until reset, e.g. 5d / 2h / 40m
+fmt_left() {
+  awk -v r="$1" -v n="$(date +%s)" 'BEGIN{
+    s=r-n; if(s<0)s=0
+    if(s>=172800) printf "%.0fd", s/86400
+    else if(s>=3600) printf "%.0fh", s/3600
+    else printf "%.0fm", s/60
+  }'
+}
 
 # ── Separator ─────────────────────────────────────────────────────────────────
 SEP="${RESET}${MUTED}${DIM} | ${RESET}"
@@ -84,6 +96,7 @@ printf "${SEP}${PEACH}🪟 %s/%s${RESET}" "$cur_str" "$ctx_str"
 
 # Segment 5: usage limits  (muted gold)
 if [ -n "$limit_5h" ] && [ -n "$limit_7d" ]; then
-  printf "${SEP}${GOLD}📊 5h:%.0f%% 7d:%.0f%%${RESET}" "$limit_5h" "$limit_7d"
+  printf "${SEP}${GOLD}📊 %s:%.0f%% %s:%.0f%%${RESET}" \
+    "$(fmt_left "$reset_5h")" "$limit_5h" "$(fmt_left "$reset_7d")" "$limit_7d"
 fi
 printf "\n"
