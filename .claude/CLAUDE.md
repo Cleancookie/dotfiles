@@ -25,7 +25,7 @@ Prefix commit messages with emojis.  These can be treated similarly to `conventi
 | `build` / `ci` | 👷 / 💚 | `:construction_worker:` / `:green_heart:` | CI/CD build system or configuration changes |
 | `chore` | 🔧 | `:wrench:` | Other changes that don't modify `src` or test files |
 | `revert` | ⏪️ | `:rewind:` | Reverting a previous commit (**PATCH**) |
-| `BREAKING CHANGE` | 💥 | `:boom:` | Breaking API changes (**MAJOR**) |
+| `BREAKING CHANGE` | 💥 | `:boom:` | Breaking changes (**MAJOR**) |
 
 If there is a work item number attached to the work then it will prefix the emoji `AB#1234 ✨ add command palette`
 The emoji replaces the type word — never write both. Format: [AB#1234 ]<emoji> <imperative subject>.
