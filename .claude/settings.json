@@ -10,7 +10,6 @@
       "Bash(jq *)",
       "Bash(xargs ls:*)",
       "Read(/tmp/**)",
-      "Write(/tmp/**)",
       "Bash(mkdir *)",
       "Bash(touch *)",
       "Bash(git status)",
@@ -41,7 +40,7 @@
       "Bash(terraform providers*)",
       "Bash(terraform show *)",
       "Bash(terraform output*)",
-	  "Bash(ansible --version*)",
+      "Bash(ansible --version*)",
       "Bash(ansible-lint*)",
       "Bash(ansible-config dump*)",
       "Bash(ansible-config view*)",
@@ -55,25 +54,25 @@
     "deny": [
       "Bash(grep * ~/.ssh/*)",
       "Bash(find / -name id_rsa*)",
-	  "Read(~/.ssh/**)",
-	  "Read(~/.aws/**)",
-	  "Read(~/.azure/**)",
-	  "Read(~/.config/gcloud/**)",
-	  "Read(**/.env*)"
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.azure/**)",
+      "Read(~/.config/gcloud/**)",
+      "Read(**/.env*)"
     ],
     "ask": [
       "Bash(*push*--force*)",
       "Bash(*push*-f*)",
       "Bash(rm *)",
-	  "Bash(git reset --hard*)",
-	  "Bash(git rebase*)",
-	  "Bash(git commit *--amend*)",
-	  "Bash(git commit *--no-verify*)",
-	  "Bash(ansible-playbook*)",
+      "Bash(git reset --hard*)",
+      "Bash(git rebase*)",
+      "Bash(git commit *--amend*)",
+      "Bash(git commit *--no-verify*)",
+      "Bash(ansible-playbook*)",
       "Bash(ansible-vault*)",
       "Bash(ansible-galaxy install*)",
       "Bash(ansible *)",
-	  "Bash(terraform plan*)",
+      "Bash(terraform plan*)",
       "Bash(terraform apply*)",
       "Bash(terraform destroy*)",
       "Bash(terraform state*)"
@@ -97,6 +96,14 @@
     "command": "bash ~/.claude/statusline-command.sh"
   },
   "effortLevel": "medium",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    }
+  },
+  "remote": {
+    "defaultEnvironmentId": "env_01KovXwtqmrb4CuuDs2qCu8m"
+  },
   "tui": "fullscreen",
   "voice": {
     "enabled": false,
@@ -132,8 +139,5 @@
       "routine under /home/alexlaw/projects/db-pro/ prefix"
     ]
   },
-  "voiceEnabled": false,
-  "remote": {
-    "defaultEnvironmentId": "env_01KovXwtqmrb4CuuDs2qCu8m"
-  }
+  "voiceEnabled": false
 }
