@@ -57,3 +57,5 @@ rationale in every commit of a series. Commit history tells a story
   `🐛 fetch wallboard stats via statRequest so a slow old range cannot overwrite a new one`
 
 **Reasoning, root cause and trade-offs go in the PR description, not the commits.**
+
+- Before finishing any task where you learned something non-obvious, use the tal-wiki skill to record it if the tal-wiki skill is available.
