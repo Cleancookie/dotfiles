@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+exec ~/projects/aw-watcher-claude-code/aw-heartbeat.sh

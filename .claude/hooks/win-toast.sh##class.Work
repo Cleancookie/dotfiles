@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Inline scriptblock, not -File: execution policy blocks unsigned .ps1 on \\wsl.localhost
+input=$(cat)
+transcript=$(jq -r '.transcript_path // empty' <<<"$input")
+tab=$([ -f "$transcript" ] && tac "$transcript" | grep -m1 -E '"type":"(custom|ai)-title"' | jq -r '.customTitle // .aiTitle // empty')
+export TOAST_MSG=$(jq -r '.message // "Finished"' <<<"$input")
+export TOAST_TITLE="${tab:-Claude Code} — $(basename "$PWD")"
+export WSLENV="${WSLENV:+$WSLENV:}TOAST_MSG:TOAST_TITLE"
+ps1=$(wslpath -w "$(dirname "$(readlink -f "$0")")/win-toast.ps1")
+powershell.exe -NoProfile -NonInteractive -Command \
+  "& ([scriptblock]::Create((Get-Content -Raw -LiteralPath '$ps1')))" >/dev/null 2>&1 &
