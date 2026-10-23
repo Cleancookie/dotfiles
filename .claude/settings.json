@@ -59,7 +59,15 @@
       "Read(~/.aws/**)",
       "Read(~/.azure/**)",
       "Read(~/.config/gcloud/**)",
-      "Read(**/.env*)"
+      "Read(**/.env)",
+      "Read(**/.env.local)",
+      "Read(**/.env.*.local)",
+      "Read(**/.env.production)",
+      "Read(**/.env.staging)",
+      "Read(**/.env.testing)",
+      "Read(**/.env.dev*)",
+      "Read(**/.env.bak*)",
+      "Read(**/.env.backup*)"
     ],
     "ask": [
       "Bash(*push*--force*)",
@@ -81,12 +89,76 @@
     "defaultMode": "auto"
   },
   "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/aw-heartbeat.sh"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/aw-heartbeat.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/aw-heartbeat.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/aw-heartbeat.sh"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/aw-heartbeat.sh"
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "hooks": [
           {
             "type": "command",
             "command": "tput bel"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/aw-heartbeat.sh"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/win-toast.sh"
           }
         ]
       }
@@ -97,9 +169,18 @@
     "command": "bash ~/.claude/statusline-command.sh"
   },
   "effortLevel": "medium",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "medium"
+    },
+    "claude-sonnet-5-5": {}
+  },
+  "remote": {
+    "defaultEnvironmentId": "env_01KovXwtqmrb4CuuDs2qCu8m"
+  },
   "tui": "fullscreen",
   "voice": {
-    "enabled": false,
+    "enabled": true,
     "mode": "hold"
   },
   "preferredNotifChannel": "terminal_bell",
@@ -131,9 +212,5 @@
       "**Org-specific CLIs**: None configured",
       "routine under /home/alexlaw/projects/db-pro/ prefix"
     ]
-  },
-  "voiceEnabled": false,
-  "remote": {
-    "defaultEnvironmentId": "env_01KovXwtqmrb4CuuDs2qCu8m"
   }
 }
