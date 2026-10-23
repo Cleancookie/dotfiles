@@ -10,7 +10,6 @@
       "Bash(jq *)",
       "Bash(xargs ls:*)",
       "Read(/tmp/**)",
-      "Write(/tmp/**)",
       "Bash(mkdir *)",
       "Bash(touch *)",
       "Bash(git status)",
