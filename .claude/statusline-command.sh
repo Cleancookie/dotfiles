@@ -17,6 +17,7 @@ MINT=$(rgb FG 140 210 180)        # mint green
 PEACH=$(rgb FG 230 180 140)       # peach/apricot
 ROSE=$(rgb FG 220 160 175)        # soft pink/rose
 SKY=$(rgb FG 150 195 225)         # powder blue
+AQUA=$(rgb FG 135 180 235)        # pastel cornflower blue
 GOLD=$(rgb FG 210 190 120)        # muted gold
 MUTED=$(rgb FG 150 150 165)       # dim separator
 
@@ -24,9 +25,8 @@ MUTED=$(rgb FG 150 150 165)       # dim separator
 project_dir=$(echo "$input" | jq -r '.workspace.project_dir // .workspace.current_dir // ""')
 project_name=$(basename "$project_dir")
 
-# Today's cost: project-scoped and all-sessions
+# Today's cost across all sessions
 today=$(date +%Y-%m-%d)
-claude_proj_dir="$HOME/.claude/projects/$(echo "$project_dir" | sed 's|/|-|g')"
 
 _sum_cost() {
   find "$1" -name "*.jsonl" -mtime -1 2>/dev/null \
@@ -39,12 +39,22 @@ _sum_cost() {
             (.message.usage.cache_read_input_tokens // 0) * 0.30 / 1000000
           )
       " "{}" 2>/dev/null' \
-    | awk '{s+=$1} END {printf "$%.2f", s+0}'
+    | awk '{s+=$1} END {printf "%.4f", s+0}'
 }
 
-proj_cost=$(_sum_cost "$claude_proj_dir")
-all_cost=$(_sum_cost "$HOME/.claude/projects")
-today_cost="${proj_cost} / ${all_cost}"
+# usd = real dollar estimate, water = cooling-water joke
+COST_UNIT=water
+# Tongue-in-cheek guess, not a measurement
+WATER_L_PER_USD=1.0
+
+_fmt_cost() {
+  case "$COST_UNIT" in
+    usd) awk -v c="$1" 'BEGIN{printf "$%.2f", c}' ;;
+    *)   awk -v c="$1" -v k="$WATER_L_PER_USD" 'BEGIN{printf "%.2fL", c*k}' ;;
+  esac
+}
+
+today_cost=$(_fmt_cost "$(_sum_cost "$HOME/.claude/projects")")
 
 model=$(echo "$input" | jq -r '.model.id // ""' | sed 's/^claude-//')
 effort=$(echo "$input" | jq -r '.effort.level // ""')
@@ -83,18 +93,21 @@ SEP="${RESET}${MUTED}${DIM} | ${RESET}"
 
 # ── Render ────────────────────────────────────────────────────────────────────
 # Segment 1: project  (lavender)
-printf "${LAVENDER}${BOLD}📁 %s (today est: %s)${RESET}" "$project_name" "$today_cost"
+printf "${LAVENDER}${BOLD}📁 %s${RESET}" "$project_name"
 
-# Segment 2: model + effort  (mint)
+# Segment 2: water usage  (aqua)
+printf "${SEP}${AQUA}💧 %s used today${RESET}" "$today_cost"
+
+# Segment 3: model + effort  (mint)
 printf "${SEP}${MINT}🤖 %s${RESET}" "$model_str"
 
-# Segment 3: session token totals  (sky blue)
+# Segment 4: session token totals  (sky blue)
 printf "${SEP}${SKY}⬆ %s ⬇ %s${RESET}" "$in_str" "$out_str"
 
-# Segment 4: context window usage  (peach)
+# Segment 5: context window usage  (peach)
 printf "${SEP}${PEACH}🪟 %s/%s${RESET}" "$cur_str" "$ctx_str"
 
-# Segment 5: usage limits  (muted gold)
+# Segment 6: usage limits  (muted gold)
 if [ -n "$limit_5h" ] && [ -n "$limit_7d" ]; then
   printf "${SEP}${GOLD}📊 %s:%.0f%% %s:%.0f%%${RESET}" \
     "$(fmt_left "$reset_5h")" "$limit_5h" "$(fmt_left "$reset_7d")" "$limit_7d"
