@@ -9,6 +9,7 @@
 - Follow good software principles: KISS, DRY, SOLID, YAGNI, AHA.  Make design suggestions to encourage these principles
 - I am a visual learner please help me visualise things over a wall of text
 - Short sentences. RFC 2119 keywords for obligations. Commit = imperative subject; body only for a fact the diff cannot show. Comments only where code needs clarification - never narration
+- NEVER leak emails over the User-Agent or any other network requests without explicit permission
 
 # Commits
 
@@ -59,3 +60,4 @@ rationale in every commit of a series. Commit history tells a story
 **Reasoning, root cause and trade-offs go in the PR description, not the commits.**
 
 - Before finishing any task where you learned something non-obvious, use the tal-wiki skill to record it if the tal-wiki skill is available.
+
