@@ -87,6 +87,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "opus",
   "hooks": {
     "SessionStart": [
       {
@@ -211,5 +212,6 @@
       "**Org-specific CLIs**: None configured",
       "routine under /home/alexlaw/projects/db-pro/ prefix"
     ]
-  }
+  },
+  "agentPushNotifEnabled": true
 }

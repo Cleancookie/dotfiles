@@ -10,6 +10,7 @@
 - I am a visual learner please help me visualise things over a wall of text
 - Short sentences. RFC 2119 keywords for obligations. Commit = imperative subject; body only for a fact the diff cannot show. Comments only where code needs clarification - never narration
 - NEVER leak emails over the User-Agent or any other network requests without explicit permission
+- Unless stated otherwise, add logging and monitoring in such that manually verifying code after deployment is easy.  This may mean adding in `logger()->info()` lines to look for later in Datadog
 
 # Commits
 
@@ -25,6 +26,7 @@ Prefix commit messages with emojis.  These can be treated similarly to `conventi
 | `test` | ✅ | `:white_check_mark:` | Adding or updating tests |
 | `build` / `ci` | 👷 / 💚 | `:construction_worker:` / `:green_heart:` | CI/CD build system or configuration changes |
 | `chore` | 🔧 | `:wrench:` | Other changes that don't modify `src` or test files |
+| `upgrade` | ⬆️ | `:arrow_up:` | PHP / framework / dependency version upgrade |
 | `revert` | ⏪️ | `:rewind:` | Reverting a previous commit (**PATCH**) |
 | `BREAKING CHANGE` | 💥 | `:boom:` | Breaking changes (**MAJOR**) |
 
