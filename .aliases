@@ -41,6 +41,9 @@ alias pc='code $(find ~/projects -maxdepth 1 -type d | fzf)' # Open project in c
 
 alias explorer='explorer.exe'
 alias explore='explorer.exe'
+alias explore:here='explorer.exe "$(wslpath -w .)"'
+explore:at() { explorer.exe "$(wslpath -w "${1:-.}")"; }
+alias e='explore:at'
 
 alias tlogs='tail -f $(find ~/projects -maxdepth 4 -mindepth 4 -name laravel.log)'
 
